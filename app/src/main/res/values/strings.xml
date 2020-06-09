@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecycleViewPPP</string>
+    <string name="name_of_student">Name of student</string>
+    <string name="faculty_number">Faculty number</string>
+    <string name="phone_number">Phone number</string>
+    <string name="add_student">Add student</string>
+</resources>
