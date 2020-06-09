@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements DialogListener {
+public class MainActivity extends AppCompatActivity implements DialogListener, RecycleListener {
     private static final String TAG = "MainActivity";
 
     RecyclerView view;
@@ -58,5 +58,7 @@ public class MainActivity extends AppCompatActivity implements DialogListener {
     @Override
     public void onRecyclerItemClicked(int position) {
         Log.d(TAG, "onNoteClick: clicked on " + position + " position.");
+        students.get(position).setName("Clicked!");
+        adapter.notifyItemChanged(position);
     }
 }

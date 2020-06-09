@@ -1,6 +1,7 @@
 package com.android.recycleviewppp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,9 @@ import java.util.ArrayList;
 
 public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     ArrayList<Student> students = new ArrayList<>();
-    DialogListener mRecycleViewListener;
+    RecycleListener mRecycleViewListener;
 
-    public ViewAdapter(ArrayList<Student> students, DialogListener mOnRecycleViewListener) {
+    public ViewAdapter(ArrayList<Student> students, RecycleListener mOnRecycleViewListener) {
         this.students = students;
         this.mRecycleViewListener = mOnRecycleViewListener;
     }
@@ -25,6 +26,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         Context context = parent.getContext(); // Vzemame sustoqnieto na parent
         LayoutInflater inflater = LayoutInflater.from(context); // Da mojem da chetem ot XLM-a(pravi vruzkata)
         View view = inflater.inflate(R.layout.student_element, parent, false);
+        Log.d("ViewAdapter", "onCreateViewHolder: clicked.");
 
         return new ViewHolder(view, mRecycleViewListener);
     }
@@ -35,6 +37,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.setName(student1.getName());
         holder.setFacno(student1.getFacno());
         holder.setPhone(student1.getPhone());
+        Log.d("ViewAdapter", "onBindViewHolder: clicked.");
     }
 
     @Override

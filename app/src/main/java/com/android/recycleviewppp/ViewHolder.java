@@ -11,22 +11,22 @@ import org.w3c.dom.Text;
 
 public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     TextView name, facno, phone;
-    DialogListener RecycleViewListener;
+    RecycleListener RecyclerListener;
 
-    public ViewHolder(@NonNull View itemView, DialogListener onNoteListener) {
+    public ViewHolder(@NonNull View itemView, RecycleListener RecyclerListener) {
         super(itemView);
 
         name = itemView.findViewById(R.id.name);
         facno = itemView.findViewById(R.id.facno);
         phone = itemView.findViewById(R.id.phone);
 
-        this.RecycleViewListener = onNoteListener;
+        this.RecyclerListener = RecyclerListener;
         itemView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        RecycleViewListener.onRecyclerItemClicked(getAdapterPosition());
+        RecyclerListener.onRecyclerItemClicked(getAdapterPosition());
     }
 
     public void setName(String name) {
